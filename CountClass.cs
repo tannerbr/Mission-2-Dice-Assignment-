@@ -7,7 +7,7 @@ namespace DiceAssignment
         // Random number generator
         private static Random random = new Random();
 
-        public void percentFinder(int rolls)
+        public int[] RollDice(int rolls)
         {
             // Array to keep track of the sum of the roll
             int[] sumArray = new int[11]; // Indices 0-10 correspond to sums 2-12
@@ -26,20 +26,7 @@ namespace DiceAssignment
                 sumArray[rollSum - 2]++;
             }
 
-            // Print the histogram
-            Console.WriteLine("DICE ROLLING SIMULATION RESULTS");
-            Console.WriteLine("Each \"*\" represents 1% of the total number of rolls.");
-            Console.WriteLine("Total number of rolls = " + rolls);
-
-            for (int i = 0; i < sumArray.Length; i++)
-            {
-                int rollResult = i + 2;
-                double percentage = (double)sumArray[i] / rolls * 100;
-                int numStars = (int)Math.Round(percentage);
-                string stars = new string('*', numStars);
-
-                Console.WriteLine($"{rollResult}: {stars} ({percentage:F2}%)");
-            }
+            return sumArray;
         }
     }
 }
