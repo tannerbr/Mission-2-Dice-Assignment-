@@ -1,24 +1,25 @@
 ﻿using DiceAssignment;
 
-int numRoles = 0;
+int numRolls = 0;
 
 // Welcome & Ask the user for the number of roles
 Console.WriteLine("Welcome to the dice throwing simulator!");
 Console.WriteLine("");
 
 Console.WriteLine("How many dice rolls would you like to simulate?");
-numRoles = int.Parse(Console.ReadLine());
+numRolls = int.Parse(Console.ReadLine());
 
 // Call class
 CountClass cClass = new CountClass();
-int[] rollResults = cClass.RollDice(numRoles);
+int[] rollResults = cClass.RollDice(numRolls);
 
 // Output to User
 Console.WriteLine("DICE ROLLING SIMULATION RESULTS");
 Console.WriteLine("Each \"*\" represents 1% of the total number of rolls.");
-Console.WriteLine("Total number of rolls = " + numRoles);
+Console.WriteLine("Total number of rolls = " + numRolls);
+Console.WriteLine("");
 
-DisplayHistogram(rollResults, numRoles);
+DisplayHistogram(rollResults, numRolls);
 
 void DisplayHistogram(int[] results, int totalRolls)
 {
